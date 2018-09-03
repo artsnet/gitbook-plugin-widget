@@ -2,19 +2,20 @@
   "name": "gitbook-plugin-widget",
   "description": "Widget plugin for GitBook",
   "main": "index.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "gitbook": "*"
   },
-  "homepage": "https://github.com/GitbookIO/plugin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GitbookIO/plugin.git"
+    "url": "https://github.com/joeartsea/gitbook-plugin-widget"
   },
   "license": "Apache 2",
-  "bugs": {
-    "url": "https://github.com/GitbookIO/plugin/issues"
-  },
+  "keywords": [
+    "gitbook",
+    "plugin",
+    "widget"
+  ],
   "author": {
     "name": "Atsushi Kojo",
     "email": "artsnet111@gmail.com"
