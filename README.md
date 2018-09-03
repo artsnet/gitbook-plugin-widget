@@ -35,7 +35,7 @@ Add the plugin to the book setting `book.json` and set the required options.
   - `elem` - Specify the element of the form. (Required)
   - `attr` - Specify attributes of form elements. (Required)
     - `id` - Specify the ID of the form element. (Required)
-    - `action` - Specify the action of the form element. (Required)
+    - `action` - Specify the action of the form element. (Required)
     - `method` - Specify the method of the form element. (Required)
     - `target` - Specify the target of the form element. (Required)
   - `child` - Specify the data on the external web page as a child element of the form element.
