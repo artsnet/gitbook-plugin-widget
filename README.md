@@ -41,6 +41,54 @@ Add the plugin to the book setting `book.json` and set the required options.
   - `child` - Specify the data on the external web page as a child element of the form element.
     - `elem` - You can specify elements of child elements.
     - `attr` - You can specify attributes of child elements.
+      - `value` - If the data to be sent in the form is text, it will be the value as it is. If the data you send in the form is an object, you can specify the following types:
+        - `type` - You can specify `localStorage` and `state`. `localStorage` is used to send tokens like JWT. `state` is used to send specific context of gitbook.
+        - `path` - Specify the path of `localStorage` or` state` value. For `localStorage`, specify Key name. For `state`, specify a specific path of the gitbook state object.
+
+        e.g. gitbook state object
+        ```JSON
+        {
+          "state": {
+            "page": {
+              "title": "title",
+              "level": "2.1.2",
+              "depth": 2,
+              "next": {
+                "title": "title",
+                "level": "2.1.3",
+                "depth": 2,
+                "path": "example/current.md",
+                "ref": "example/current.md",
+                "articles": []
+              },
+              "previous": {
+                "title": "prepage title",
+                "level": "2.1.1",
+                "depth": 2,
+                "path": "example/pre.md",
+                "ref": "example/pre.md",
+                "articles": []
+              },
+              "dir": "ltr"
+            },
+            "file": {
+              "path": "example/current.md",
+              "mtime": "2018-08-23T03:03:16.000Z",
+              "type": "markdown"
+            },
+            "gitbook": {
+              // Gitbook version etc.
+            },
+            "config": {
+              // The contents set in book.js etc.
+            },
+            "basePath": "..",
+            "book": {
+              // Gitbook language etc.
+            }
+          }
+        }
+        ```
     - `text` - You can specify the text of the child element.
 
 ## Example
@@ -58,11 +106,7 @@ Add the plugin to the book setting `book.json` and set the required options.
           "elem": "div",
           "attr": {
             "id": "contactWidget"
-          },
-          "child": [{
-            "elem": "p",
-            "text": "test"
-          }]
+          }
         },
         "style": {
           "elem": "style",
