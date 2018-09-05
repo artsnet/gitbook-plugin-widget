@@ -42,12 +42,60 @@ Add the plugin to the book setting `book.json` and set the required options.
     - `elem` - You can specify elements of child elements.
     - `attr` - You can specify attributes of child elements.
       - `value` - If the data to be sent in the form is text, it will be the value as it is. If the data you send in the form is an object, you can specify the following types:
-        - `type` - You can specify `localStorage` and `state`. `localStorage` is used to send tokens like JWT. `state` is used to send specific context of gitbook.
-        - `path` - Specify the path of `localStorage` or` state` value. For `localStorage`, specify Key name. For `state`, specify a specific path of the gitbook state object.
+        - `type` - You can specify `localStorage` and `state` and `location`. `localStorage` is used to send tokens like JWT. `state` is used to send specific context of gitbook. `location` is `window.location`;
+        - `path` - Specify the path of `localStorage` or` state` value. For `localStorage`, specify Key name. For `state`, specify a specific path of the gitbook state object. For `location`, specify a specific path of the `window.location` object. If path is not specified, all objects are returned.
+
+        e.g. Specify the location
+        ```json
+        {
+          "elem": "input",
+          "attr": {
+            "id": "location",
+            "type": "hidden",
+            "name": "location",
+            "value": {
+              "type": "location",
+              "path": "pathname"
+            }
+          }
+        }
+        ```
+
+        e.g. location object
+        ```json
+        "location": {
+          "href": "https://example.com/current.html",
+          "ancestorOrigins": {},
+          "origin": "https://example.com",
+          "protocol": "https:",
+          "host": "example.com",
+          "hostname": "example.com",
+          "port": "",
+          "pathname": "/current.html",
+          "search": "",
+          "hash": ""
+      	}
+        ```
+
+        e.g. Specify the gitbook state
+        ```json
+        {
+          "elem": "input",
+          "attr": {
+            "id": "state",
+            "type": "hidden",
+            "name": "state",
+            "value": {
+              "type": "state",
+              "path": "state.page"
+            }
+          }
+        }
+        ```
 
         e.g. gitbook state object
         ```JSON
-        {
+        "gitbook": {
           "state": {
             "page": {
               "title": "title",
@@ -57,22 +105,22 @@ Add the plugin to the book setting `book.json` and set the required options.
                 "title": "title",
                 "level": "2.1.3",
                 "depth": 2,
-                "path": "example/current.md",
-                "ref": "example/current.md",
+                "path": "example.com/current.md",
+                "ref": "example.com/current.md",
                 "articles": []
               },
               "previous": {
                 "title": "prepage title",
                 "level": "2.1.1",
                 "depth": 2,
-                "path": "example/pre.md",
-                "ref": "example/pre.md",
+                "path": "example.com/pre.md",
+                "ref": "example.com/pre.md",
                 "articles": []
               },
               "dir": "ltr"
             },
             "file": {
-              "path": "example/current.md",
+              "path": "example.com/current.md",
               "mtime": "2018-08-23T03:03:16.000Z",
               "type": "markdown"
             },

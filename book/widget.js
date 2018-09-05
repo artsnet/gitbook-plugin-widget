@@ -91,15 +91,23 @@ require(['gitbook'], function(gitbook) {
         return localStorage.getItem(v.path);
         break;
       case 'state':
-        var path = 'gitbook';
-        for (var key of v.path.split('.')) {
-          path += "['" + key + "']";
-        }
-        return JSON.stringify(eval(path));
+        return JSON.stringify(createPath('gitbook', v.path));
+        break;
+      case 'location':
+        return JSON.stringify(createPath('location', v.path));
         break;
       default:
         return v;
     }
+  }
+
+  function createPath(parent, path) {
+    if (path) {
+      for (var key of path.split('.')) {
+        parent += "['" + key + "']";
+      }
+    }
+    return eval(parent);
   }
 
   function isObject(obj) {
