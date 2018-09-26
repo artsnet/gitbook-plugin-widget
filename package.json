@@ -2,13 +2,13 @@
   "name": "gitbook-plugin-widget",
   "description": "Widget plugin for GitBook",
   "main": "index.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "engines": {
     "gitbook": "*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joeartsea/gitbook-plugin-widget"
+    "url": "https://github.com/artsnet/gitbook-plugin-widget"
   },
   "license": "Apache 2",
   "keywords": [
