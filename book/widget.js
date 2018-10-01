@@ -60,9 +60,9 @@ require(['gitbook'], function(gitbook) {
     if (attr) {
       for (var a in attr) {
         if (a === 'value' && isObject(attr[a])) {
-          element[a] = assignValue(attr[a]);
+          element.setAttribute(a, assignValue(attr[a]));
         } else {
-          element[a] = attr[a];
+          element.setAttribute(a, attr[a]);
         }
       }
     }
